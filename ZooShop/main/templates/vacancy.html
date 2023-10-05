@@ -1,0 +1,11 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <div class="list-group">
+    {% for v in vacancy %}
+        <h3>{{ v.name }}</h3>
+        <p>{{ v.salary }}</p>
+        <p>{{ v.discription }}</p>
+    {% endfor %}
+</div>
+{% endblock %}

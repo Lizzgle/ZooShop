@@ -1,0 +1,85 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <a href="{% url 'product_create' %}">Create new product</a>
+    {% endif %}
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col w-25">
+        <div class="card text-bg-warning mb-3" style="max-width: 18rem;">
+        <form method="get">
+            <div class="card-header">Sort by:</div>
+            <div class="card-body">
+                <select name="sort_by" id="sort_by">
+                    <option value="name">Name</option>
+                    <option value="price_asc">Price (Low to High)</option>
+                    <option value="price_desc">Price (High to Low)</option>
+                </select>
+                <button type="submit" class="btn btn-outline-light">Apply Filters</button>
+            </div>
+        </form>
+
+
+        <form method="get">
+            <div class="card-header">Filter</div>
+            <div class="card-body">
+
+                <div class="input-group">
+                    <span class="input-group-text">price</span>
+                    <input type="number" name="price_from" id="price_from" class="form-control"  placeholder="from">
+                    <input type="number" name="price_to" id="price_to" class="form-control"  placeholder="to" value='{{ price_max }}'>
+                </div>
+
+
+            </div>
+{#        <form method="get" action="{% url 'products' %}">#}
+            <div class="card-header">Category</div>
+            <div class="card-body">
+                <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="all_categories" value="all" id="all_categories">
+                        <label class="form-check-label" for="all_categories">
+                            All categories
+                        </label>
+                    </div>
+                {% for c in category %}
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="category" value="{{ c.id }}" id="category_{{ c.id }}"
+                         {% if c.id == category_id %}
+                               checked
+                         {% endif %}>
+                        <label class="form-check-label" for="category_{{ c.id }}">
+                            {{ c.name }}
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+
+        <button type="submit" class="btn btn-outline-light">Submit</button>
+{#        <button type="submit">Submit</button>#}
+        </form>
+        </div>
+
+  </div>
+
+    {% for el in products %}
+  <div class="col w-25">
+  <a href="{{ el.id }}">
+    <div class="card h-100">
+      <img src="{{ el.image.url }}"  class="card-img-top" alt="...">
+      <div class="card-body" style="align-self: end">
+{#          <a href="{{ el.id }}">{{ el.name }}</a>#}
+        <h5 class="card-title">{{ el.name }}</h5>
+        <p class="card-text">{{ el.price }}</p>
+      </div>
+    </div>
+      </a>
+  </div>
+    {% endfor %}
+</div>
+</div>
+
+
+{% endblock %}
+

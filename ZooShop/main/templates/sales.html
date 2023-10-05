@@ -1,0 +1,27 @@
+{% extends 'shared/base.html' %}
+{% load tz %}
+
+{% block content %}
+    <div class="list-group">
+    {% for s in sales %}
+        {% now "Y-m-d" as current_date %}
+        {% if s.to_date|date:"Y-m-d" < current_date %}
+            <div style="background-color: darkgray">
+                <h3 style="text-decoration: line-through;">{{ s.product }}</h3>
+                <p>{{ s.discription }}</p>
+                <p>{{ s.to_date }}</p>
+{#                p>{% datetime.date.today|date:"Y-m-d" %}</p>#}
+                <p>arfive</p>
+            </div>
+            <hr>
+        {% else %}
+            <div>
+                <h3>{{ s.product }}</h3>
+                <p>{{ s.discription }}</p>
+                <p>{{ s.to_date|date:"Y-m-d" }}</p>
+            </div>
+            <hr>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

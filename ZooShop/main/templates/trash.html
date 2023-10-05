@@ -1,0 +1,65 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <nav>
+    <ul>
+        <li><a href="#item">Item</a></li>
+        <li><a href="#code">Code</a></li>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#quote">Quote</a></li>
+
+    </ul>
+    </nav>
+
+<div itemscope itemtype="http://schema.org/Person" id="item">
+  <h1 itemprop="name">John Doe</h1>
+  <p>Occupation: <span itemprop="jobTitle">Web Developer</span></p>
+</div>
+
+    <code id="code">cout << <var>heeey</var>;</code><br>
+
+    <dfn title="Web-разработчик" id="definition">человек, занимающийся разработкой веб-сайтов или корпоративных приложений для Интернета.</dfn><br>
+    <q cite="Dr. Christopher Dayagdag" id="quote">A website without visitors is like a ship lost in the horizon.</q>
+
+    <p>Кто у двери <wbr>нас встречает<br>
+        В тишине весь <wbr>день проспав,<br>
+        И от счастья<wbr> начинает <br>
+        Громко лаять <wbr>«Гав-гав-гав»?</p><br>
+{% load static %}
+    <figure>
+        <img src="{% static '/img/cat.jpg' %}" height="100" alt="cat">
+        <figcaption>Cat</figcaption>
+    </figure>
+
+    <table border="1">
+        <tr>
+            <th>Тип животного</th>
+            <th>Количество</th>
+            <th>Описание</th>
+        </tr>
+        <tr>
+            <td rowspan="3">Млекопитающие</td>
+            <td>10</td>
+            <td>Млекопитающие - это животные, которые питаются молоком своих матерей.</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>Среди млекопитающих есть хищники и травоядные.</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Некоторые млекопитающие являются домашними питомцами.</td>
+        </tr>
+        <tr>
+            <td colspan="2">Птицы</td>
+            <td>Птицы - это пернатые животные, способные летать.</td>
+        </tr>
+        <tr>
+            <td>Рептилии</td>
+            <td>8</td>
+            <td>Рептилии - это холоднокровные животные, включая змей и ящериц.</td>
+        </tr>
+    </table>
+
+    <iframe width="90%" height="500px" src="https://ru.wikipedia.org/wiki/Животные"></iframe>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <a href="{% url 'purchase_create' %}">Add purchase</a>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Date</th>
+            <th scope="col">Supplier</th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for el in purchases %}
+            <tr>
+                <th scope="row">{{ el.id }}</th>
+                <td>{{ el.date }}</td>
+                <td>{{ el.supplier }}</td>
+                <td>{{ el.product }}</td>
+                <td>{{ el.quantity }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

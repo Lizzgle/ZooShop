@@ -1,0 +1,176 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+
+    <p>Текущая дата и время (в вашей временной зоне): {{ user_timezone_datetime|date:"d/m/Y H:i:s" }}</p>
+    <p>Текущая дата и время (UTC): {{ utc_datetime|date:"d/m/Y H:i:s" }}</p>
+    <div class="calendar">
+    <pre>
+        {{ calendar|safe }}
+    </pre>
+</div>
+
+   <div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../static/img/marketing/1.png" class="d-block w-75" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../static/img/marketing/2.jpg" class="d-block w-75" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../static/img/marketing/3.png" class="d-block w-75" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+    <div class="row row-cols-1 row-cols-md-3 g-4 h-25">
+
+    {% for el in category %}
+        <a href="{% url 'products' %}?category={{ el.id }}" style="text-decoration: none">
+    <div class="col">
+        <div class="card h-75">
+            <img src="{{ el.image.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <a href="{{ el.id }}">{{ el.name }}</a>
+{#          <h5 class="card-title">Card title</h5>#}
+            <p class="card-text">{{ el.price }}</p>
+        </div>
+        </div>
+  </div>
+    {% endfor %}
+    </div>
+
+    <h3>Last News</h3>
+     <a href="{% url 'news_info' id=last_news.id %}" style="text-decoration: none">
+        <div class="col">
+            <div class="card">
+                <img src="{{ last_news.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ last_news.title }}</h5>
+                    <p class="card-text">{{ last_news.little_content }}</p>
+                </div>
+            </div>
+        </div>
+        </a>
+
+    <h3>Факты о котах</h3>
+
+    <button id="getCatFactBtn">Получить факт о коте</button>
+
+    <div id="catFactContainer">
+        <!-- Здесь будут отображаться факты о котах -->
+    </div>
+
+    <script>
+        // Функция для отправки запроса на сервер и отображения фактов о котах
+        function getCatFact() {
+        // Отправляем GET-запрос на сервер для получения факта о коте
+        fetch('https://catfact.ninja/fact')
+            .then(response => response.json())
+            .then(data => {
+                // Вставляем факт о коте в контейнер
+                const catFactContainer = document.getElementById('catFactContainer');
+                catFactContainer.innerHTML = `<p>${data.fact}</p>`;
+            })
+            .catch(error => {
+                console.error('Ошибка при получении факта о коте:', error);
+            });
+    }
+
+    // Добавляем обработчик события на кнопку
+    const getCatFactBtn = document.getElementById('getCatFactBtn');
+    getCatFactBtn.addEventListener('click', getCatFact);
+    </script>
+
+    <div class="card" style="width: 18rem;">
+        <div id="dogImageContainer" class="card-img-top" style="box-sizing: border-box; max-width: 18rem; max-height: 18rem; overflow: hidden;">
+            <!-- Здесь будет отображаться случайное изображение собаки -->
+        </div>
+{#        <img id="dogImageContainer" class="card-img-top" alt="...">#}
+        <div class="card-body">
+            <h5 class="card-title">Случайные изображения собак</h5>
+            <button id="getRandomDogBtn">Получить случайное изображение собаки</button>
+            <a class="btn btn-primary" id="getRandomDogBtn">Go somewhere</a>
+  </div>
+</div>
+
+
+    <h3>Случайные изображения собак</h3>
+
+    <button id="getRandomDogBtn">Получить случайное изображение собаки</button>
+
+<div id="dogImageContainer">
+    <!-- Здесь будет отображаться случайное изображение собаки -->
+</div>
+
+<script>
+    // Функция для отправки запроса на сервер и отображения случайного изображения собаки
+    function getRandomDogImage() {
+        // Отправляем GET-запрос на сервер для получения случайного изображения собаки
+        fetch('https://dog.ceo/api/breeds/image/random')
+            .then(response => response.json())
+            .then(data => {
+                // Вставляем изображение собаки в контейнер
+                const dogImageContainer = document.getElementById('dogImageContainer');
+                dogImageContainer.innerHTML = `<img src="${data.message}" alt="Случайное изображение собаки">`;
+            })
+            .catch(error => {
+                console.error('Ошибка при получении случайного изображения собаки:', error);
+            });
+    }
+
+    // Добавляем обработчик события на кнопку
+    const getRandomDogBtn = document.getElementById('getRandomDogBtn');
+    getRandomDogBtn.addEventListener('click', getRandomDogImage);
+</script>
+
+
+{#    <div class="float-sm-end">#}
+{#        <div class="card text-bg-danger mb-3" style="max-width: 18rem; ">#}
+{#  <div class="card-header">Header</div>#}
+{#  <div class="card-body">#}
+{#    <h5 class="card-title">Danger card title</h5>#}
+{#    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#  </div>#}
+{#</div>#}
+{#    </div>#}
+
+
+    <div class="container text-center border-2">
+  <div class="row row-cols-4">
+    <div class="col" >
+        <a href="https://www.felix-club.ru/">
+            <img src="../static/img/felix.jpg" height="100">
+        </a>
+    </div>
+    <div class="col">
+        <a href="https://www.purina.com/pro-plan">
+            <img src="../static/img/pro_plan.png" height="100">
+        </a>
+    </div>
+    <div class="col">
+        <a href="https://www.acana.com/en-US/homepage">
+            <img src="../static/img/acana.webp" height="70">
+        </a>
+    </div>
+    <div class="col">
+        <a href="https://www.royalcanin.com/nl">
+            <img src="../static/img/royal_canin.jpg" height="100">
+        </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

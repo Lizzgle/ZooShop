@@ -1,0 +1,102 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+   <div class="card mb-3">
+  <img src="../static/img/about_us.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">We improve the quality of life of pets and their owners.</h5>
+      <ul>
+          <li>We sell only high-quality pet supplies.</li>
+          <li>All products are certified without fail.</li>
+          <li>We are constantly expanding the range.</li>
+          <li>We have the status of a veterinary pharmacy.</li>
+          <li>We work seven days a week.</li>
+      </ul>
+{#    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
+    <p class="card-text"><small class="text-body-secondary">Our story began in the very center of Minsk. In 2003, our first pet store appeared at the Komarovsky market,
+        the huge noisy heart of the city. There were few suppliers at that time,
+        so no one had previously offered such a wide selection of feeds, toys, and care products in one place.
+        Our showcase has become a real "zoo bazaar" for animal lovers.
+        The first Zoobazar store was quickly followed by the second, third, and tenth.
+        We decided to take the business to a new level, and we succeeded.</small></p>
+      <p class="card-text"><small class="text-body-secondary">In 2007, we received a veterinary license and
+          began offering not only the largest selection of pet food and accessories in the city,
+          but also a line of in-demand veterinary drugs.</small></p>
+      <p class="card-text"><small class="text-body-secondary">Zoobazar continued to develop and began to appear outside of Minsk.
+          The first regional store opened in Baranovichi in 2008, followed by other cities of the country.
+          By the end of 2016, the chain had 36 points of sale, and the Zoobazar sign became recognizable by many buyers.</small></p>
+      <p class="card-text"><small class="text-body-secondary">In 2019, the Zoobazar network opens the 100th facility.
+          And this is a new chapter, each line of which begins with the word "first".
+          The first pet store in the industry with the Cash and carry format, where animal lovers have the opportunity
+          to make small wholesale purchases. The first contact center in the pet business to support customers and employees:
+          we want to always be there and provide high-quality information support.</small></p>
+      <p class="card-text"><small class="text-body-secondary">
+          As of June 2023, we are working in 50 cities, including all regional centers of the country.
+          Zoobazar has more than 300 points of sale of various formats: from mini-markets to self-service stores.
+          All pet stores meet standards aimed at maximizing customer satisfaction.
+          The assortment of each of them includes more than 6,500 items of goods from foreign and domestic manufacturers,
+          allowing customers to make a choice of feed or related products in any of the price segments.
+          The quality of the products is confirmed by certificates and hygiene certificates.
+          We promptly respond to market changes and provide our customers with fair and favorable prices.
+          The biggest pride of Zoobazar is more than 200,000 of our active customers who make over 500,000 purchases every month.
+          This is the main proof that we are developing in the right direction.
+      </small></p>
+
+  </div>
+</div>
+    <audio controls src="../static/audio/zvuki-kitov.mp3" ></audio>
+    <video src="../static/video/reklama-zoomagazina-priroda_(VIDEOMIN.NET).mp4" class="object-fit-contain" autoplay muted style="max-height: 400px"></video>
+    {% load static %}
+    <img src="{% static 'img/sert.jpg' %}">
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col" headers="header1">#</th>
+        <th scope="col" headers="header2">Photo</th>
+{#        <th scope="col">First Name</th>#}
+{#        <th scope="col">Last Name</th>#}
+        <th scope="col" headers="header3">Phone</th>
+        <th scope="col" headers="header4">Birthdate</th>
+        <th scope="col" headers="header5">List of Suppliers</th>
+    </tr>
+  </thead>
+    <tbody>
+
+    {% for p in profiles %}
+        <tr>
+        <th scope="col" headers="header1">{{ p.id }}</th>
+        <th scope="col" headers="header2">
+            <img src="{{ p.icon.url }}" height="50">
+        </th>
+{#        <th scope="col">{{ p.user.first_name }}</th>#}
+{#        <th scope="col">{{ p.user.last_name }}</th>#}
+        <th scope="col" headers="header3">{{ p.phone }}</th>
+        <th scope="col" headers="header4">{{ p.birthdate }}</th>
+        <th scope="col" headers="header5">
+        {% for s in p.supplier.all %}
+            <p>{{ s.company_name }}</p>
+        {% endfor %}
+        </th>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+    {% for f in feedback %}
+        <h3>{{ f.user }}</h3>
+        <p>{{ f.product }}</p>
+        <p>{{ f.rating}}</p>
+        <p>{{ f.discription }}</p>
+        <p>{{ f.date }}</p>
+    {% endfor %}
+{% if user.is_authenticated %}
+    <a href="{% url 'feedback_create' %}">Create feedback</a>
+    {% else %}
+    <a href="{% url 'login' %}">Create feedback</a>
+    {% endif %}
+
+{% endblock %}
+
+
+
+

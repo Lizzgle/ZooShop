@@ -1,0 +1,11 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+  <h2>Delete</h2>
+  <form method="post">
+    {% csrf_token %}
+    <p>Вы уверены, что хотите удалить объект "{{ item }}"?</p>
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-danger">Удалить</button>
+</form>
+{% endblock %}
