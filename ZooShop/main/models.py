@@ -171,6 +171,9 @@ class Faq(models.Model):
 
     def __str__(self):
         return self.title
+
+    def date__str__(self):
+        return f'{self.date.day}.{self.date.month}.{self.date.year}'
 #
 # class Schedule(Enum):
 #     12hours_2_2 = 1

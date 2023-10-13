@@ -7,3 +7,13 @@ body {
 pre {
     font-family: inherit;
 }
+
+
+
+
+div.center {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

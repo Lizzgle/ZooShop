@@ -18,6 +18,10 @@ p, pre {
     word-wrap: break-word;
 }
 
+h3 {
+    display: inline;
+}
+
 .text-news {
     width: inherit;
     overflow-wrap: break-word;
@@ -25,5 +29,9 @@ p, pre {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+}
+
+#text {
     text-transform: uppercase;
 }
