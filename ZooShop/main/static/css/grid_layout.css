@@ -1,0 +1,52 @@
+.grid-container {
+    display: grid;
+    /*grid-template-columns: auto auto auto auto;*/
+    grid-template-columns: 300px 300px 300px 300px;
+    grid-gap: 20px 40px;
+    padding: 10px;
+}
+
+.card-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.col1 {
+    grid-row: span 3;
+    border-width: 0 !important;
+}
+
+.grid-container > div {
+    border: 1px solid #a49004;
+    border-radius: 0.375rem;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+.form {
+    background: linear-gradient(196.82deg,#FFDF3A -4.56%,#FEC40E 101.81%);
+    border-radius: 0.375rem;
+}
+
+.card-header {
+    padding: 10px;
+    font-weight: bold;
+}
+
+.card-subtitle {
+    text-align: start;
+    padding: 10px;
+}
+
+.form-check {
+    text-align: start;
+    padding-left: 20px;
+}
+/*.card-body {*/
+/*    width: 90%;*/
+/*}*/

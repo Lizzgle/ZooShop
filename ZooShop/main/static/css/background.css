@@ -1,0 +1,42 @@
+/*main{*/
+/*  background-image: url("../img/background.jpg");*/
+/*  background-size: cover; !* Это свойство масштабирует фоновую картинку так, чтобы она занимала всю доступную область *!*/
+/*    background-repeat: no-repeat; !* Это свойство отключает повторение фоновой картинки *!*/
+/*}*/
+
+
+.background-container {
+  position: absolute; /* Чтобы элемент занимал всю доступную область экрана */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1080PX;
+  z-index: -1; /* Помещаем его "под" контентом */
+  background-size: contain; /* Масштабирование изображения, чтобы оно полностью покрывало область */
+  background-repeat: no-repeat; /* Отключение повтора фонового изображения */
+}
+
+/* Разные изображения для разных секций (по классам) */
+.section1 {
+  background-image: url('../img/background.jpg');
+}
+
+.section2 {
+  z-index: 0;
+
+}
+
+.carousel-item {
+    position: relative;
+    display: none;
+    float: left;
+    width: 100%;
+    margin-right: -100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform .6s ease-in-out;
+}
+
+/*div {*/
+/*    border: 1px solid #000; !* Ширина, стиль и цвет границы *!*/
+/*}*/

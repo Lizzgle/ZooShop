@@ -9,25 +9,39 @@
     <meta name="theme-color" content="#3498db"> <!-- Цвет темы для мобильных устройств -->
     <title>ZooShop</title>
     <link rel="icon" href="{% static 'img/icon.png'%}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-          crossorigin="anonymous">
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"#}
+{#          rel="stylesheet"#}
+{#          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"#}
+{#          crossorigin="anonymous">#}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/link.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/button.css' %}">
+    <link rel="stylesheet" href="{% static 'css/grid_layout.css' %}">
+<link rel="stylesheet" href="{% static 'css/img.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">ZooShop</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <nav class="navbar">
+{#            <div class="navbar-nav-nav"></div>#}
+{#            <a class="navbar-link brand" href="/">ZooShop</a>#}
+{#                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"#}
+{#                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"#}
+{#                        aria-expanded="false" aria-label="Toggle navigation">#}
+{#                    <span class="navbar-toggler-icon"></span>#}
+{#                </button>#}
+
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/products">Catalog</a>
+                            <a class="navbar-link brand" href="/">ZooShop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/products">Catalog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/about_us">About us</a>
@@ -62,8 +76,9 @@
                             </ul>
                         {% else %}
                             <div>
-                                <a class="btn btn-primary" href="{% url 'login' %}" role="button">Sign in</a>
-                                <a class="btn btn-outline-primary" href="/register" role="button">Sign up</a>
+
+                                <a class="btn gren" href="{% url 'login' %}" role="button">Sign in</a>
+                                <a class="btn orange" href="/register" role="button">Sign up</a>
                             </div>
                         {% endif %}
                         </li>
@@ -75,11 +90,10 @@
 
                     {% endif %}
                     </ul>
-                </div>
-            </div>
+
         </nav>
     </header>
-
+{% load static %}
     <main>
         {% block content %}
 

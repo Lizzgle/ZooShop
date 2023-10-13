@@ -1,8 +1,15 @@
+
+
 {% extends 'shared/base.html' %}
+
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/for_trash.css' %}">
+{% endblock %}
 
 {% block content %}
     <nav>
-    <ul>
+    <ul class="specific">
         <li><a href="#item">Item</a></li>
         <li><a href="#code">Code</a></li>
         <li><a href="#definition">Definition</a></li>
@@ -11,9 +18,15 @@
     </ul>
     </nav>
 
+<p>Текущая дата и время (в вашей временной зоне): {{ user_timezone_datetime|date:"d/m/Y H:i:s" }}</p>
+<p>Текущая дата и время (UTC): {{ utc_datetime|date:"d/m/Y H:i:s" }}</p>
+<div class="calendar">
+    <pre>{{ calendar|safe }}</pre>
+</div>
+
 <div itemscope itemtype="http://schema.org/Person" id="item">
   <h1 itemprop="name">John Doe</h1>
-  <p>Occupation: <span itemprop="jobTitle">Web Developer</span></p>
+  <p >Occupation: <span itemprop="jobTitle">Web Developer</span></p>
 </div>
 
     <code id="code">cout << <var>heeey</var>;</code><br>
@@ -21,7 +34,7 @@
     <dfn title="Web-разработчик" id="definition">человек, занимающийся разработкой веб-сайтов или корпоративных приложений для Интернета.</dfn><br>
     <q cite="Dr. Christopher Dayagdag" id="quote">A website without visitors is like a ship lost in the horizon.</q>
 
-    <p>Кто у двери <wbr>нас встречает<br>
+    <p class="text">Кто у двери <wbr>нас встречает<br>
         В тишине весь <wbr>день проспав,<br>
         И от счастья<wbr> начинает <br>
         Громко лаять <wbr>«Гав-гав-гав»?</p><br>
@@ -60,6 +73,28 @@
             <td>Рептилии - это холоднокровные животные, включая змей и ящериц.</td>
         </tr>
     </table>
+
+    <form>
+    <input type="number" min="0" max="10" placeholder="from 0 to 10" required>
+    <input type="text">
+    <input type="color" disabled>
+
+        <input type="checkbox" id="checkbox1" checked>
+    <label for="checkbox1">Checkbox 1</label>
+    <input type="checkbox" id="checkbox2">
+    <label for="checkbox2">Checkbox 2</label>
+
+    <input type="radio" id="radio1" name="radioGroup" >
+<label for="radio1">Radio 1</label>
+
+<input type="radio" id="radio2" name="radioGroup" checked>
+<label for="radio2">Radio 2</label>
+    </form>
+
+    <p>Цитата на французском языке: <q lang="fr">Ce que femme veut, Dieu le veut</q>.</p>
+<p>Цитата на немецком: <q lang="de">Der Mensch, versuche die Gotter nicht</q>.</p>
+<p>Цитата на английском: <q lang="en">То be or not to be</q>.</p>
+
 
     <iframe width="90%" height="500px" src="https://ru.wikipedia.org/wiki/Животные"></iframe>
 {% endblock %}

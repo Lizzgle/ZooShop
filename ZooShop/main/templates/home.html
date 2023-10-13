@@ -2,27 +2,43 @@
 
 {% block content %}
 
-    <p>Текущая дата и время (в вашей временной зоне): {{ user_timezone_datetime|date:"d/m/Y H:i:s" }}</p>
-    <p>Текущая дата и время (UTC): {{ utc_datetime|date:"d/m/Y H:i:s" }}</p>
-    <div class="calendar">
-    <pre>
-        {{ calendar|safe }}
-    </pre>
+
+
+{% load static %}
+<div class="background-container section1">
+{#<div class="section1">#}
+
+{#</div>#}
+
+{#<div class="section2">#}
+  <!-- Содержимое второй секции -->
+{#</div>#}
 </div>
 
-   <div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="../static/img/marketing/1.png" class="d-block w-75" alt="...">
+<div class="carousel-inner active">
+    <div class="carousel-item">
+      <img src="../static/img/still-life-domestic-animal-accessories-composition.jpg" alt="ERROR 404" class="carousel-img">
     </div>
     <div class="carousel-item">
-      <img src="../static/img/marketing/2.jpg" class="d-block w-75" alt="...">
+      <img src="../static/img/still-life-domestic-animal-accessories-composition.jpg" alt="ERROR 404" class="carousel-img">
     </div>
+    <div class="carousel-item">
+      <img src="../static/img/still-life-domestic-animal-accessories-composition.jpg" alt="ERROR 404" class="carousel-img">
+    </div>
+</div>
+   <div id="carouselExampleIndicators" class="carousel slide">
+       <div class="carousel-indicators">
+           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+       </div>
+  <div class="carousel-inner">
+      <div class="carousel-item active">
+          <img src="../static/img/still-life-domestic-animal-accessories-composition.jpg" class="d-block w-75" alt="...">
+      </div>
+      <div class="carousel-item">
+          <img src="../static/img/marketing/2.jpg" class="d-block w-75" alt="...">
+      </div>
     <div class="carousel-item">
       <img src="../static/img/marketing/3.png" class="d-block w-75" alt="...">
     </div>
@@ -51,7 +67,7 @@
         </div>
   </div>
     {% endfor %}
-    </div>
+{#    </div>#}
 
     <h3>Last News</h3>
      <a href="{% url 'news_info' id=last_news.id %}" style="text-decoration: none">

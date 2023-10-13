@@ -28,27 +28,10 @@ from plotly.graph_objects import Bar, Layout, Figure
 def index(request):
     category = Category.objects.all()
 
-    # Получить текущую дату и время в тайм-зоне пользователя
-    user_timezone_datetime = timezone.localtime(timezone.now())
-
-
-    # Получить текущую дату и время в UTC
-    utc_datetime = timezone.now()
-
-    now = datetime.now()
-    year = now.year
-    month = now.month
-    cal = calendar.month(year, month)
-
-    # cal_rows = cal.split('\n')[2:-1]
-
     last_news = News.objects.last()
 
     context = {
         'category': category,
-        'user_timezone_datetime': user_timezone_datetime,
-        'utc_datetime': utc_datetime,
-        'calendar': cal,
         'last_news': last_news,
     }
 
@@ -313,7 +296,23 @@ def feedback_create(request):
 
 
 def trash(request):
-    return render(request, 'trash.html')
+    # Получить текущую дату и время в тайм-зоне пользователя
+    user_timezone_datetime = timezone.localtime(timezone.now())
+
+    # Получить текущую дату и время в UTC
+    utc_datetime = timezone.now()
+
+    now = datetime.now()
+    year = now.year
+    month = now.month
+    cal = calendar.month(year, month)
+
+    context = {
+        'user_timezone_datetime': user_timezone_datetime,
+        'utc_datetime': utc_datetime,
+        'calendar': cal,
+    }
+    return render(request, 'trash.html', context)
 
 
 def statistics(request):

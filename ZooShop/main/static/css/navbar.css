@@ -1,0 +1,30 @@
+.navbar {
+    padding: 0 0;
+    display: flex;
+
+}
+
+ul {
+    display: flex;
+    align-content: center;
+    list-style-type: none;
+    align-items: center;
+}
+
+li {
+    padding: 10px;
+    align-content: center;
+    height: 48px;
+    vertical-align: center;
+    /*display: list-item;*/
+}
+
+a {
+    align-content: center;
+
+}
+
+.brand {
+    font-size: 24px; /* Измените размер шрифта первой буквы по вашему усмотрению */
+    font-weight: bold;
+}

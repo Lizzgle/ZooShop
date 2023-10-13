@@ -1,0 +1,60 @@
+.specific {
+  list-style-type: none; /* Прячем маркеры списка */
+}
+
+.specific li:before {
+  content: "\2716"; /* Добавляем перед элементом списка символ в юникоде */
+}
+
+
+
+tr:first-child, li:first-child {
+    background: aquamarine;
+}
+
+td:last-child, li:last-child {
+    background: aqua;
+}
+
+tr:last-child:nth-child(even), li:nth-child(2) {
+    background: cadetblue;
+}
+
+q:lang(fr), q:lang(ru) {
+    quotes: "\00AB" "\00BB";
+}
+
+q:lang(de) {
+    quotes: "\201E" "\201C";
+}
+
+q:lang(en) {
+    quotes: "\201C" "\201D";
+}
+
+.text::before {
+    content: "Context before: "; /* Добавление контекста перед текстом */
+    color: #808080; /* Измените цвет контекста перед текстом по вашему усмотрению */
+}
+
+.text::after {
+    content: ":Context after. "; /* Добавление контекста перед текстом */
+    color: #808080; /* Измените цвет контекста перед текстом по вашему усмотрению */
+}
+
+.text::selection {
+    background: #a49004;
+}
+
+h1 {
+    font-variant: small-caps;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: lightblue;
+}
+
+
+input[type="radio"]:checked + label {
+    background-color: lightgreen;
+}

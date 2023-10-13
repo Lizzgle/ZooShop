@@ -1,0 +1,55 @@
+input[required] {
+    border: 2px solid orange;
+}
+
+input:invalid {
+    border: 2px solid red;
+}
+
+input:valid {
+    border: 2px solid green;
+}
+
+input:disabled {
+    background-color: lightgray;
+}
+
+
+input[type="checkbox"]:checked + label {
+    font-weight: bold;
+}
+
+input[type="number"]:out-of-range {
+    border: 2px solid orange;
+}
+
+.form-control {
+    padding: 5px;
+    border-radius: 0.375rem;
+    width: 80%;
+}
+
+.input-group {
+    display: flex;
+    width: 90%;
+    padding-left: 5%;
+}
+
+.input-group>.form-control {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+}
+
+.left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-width: 1px;
+}
+
+.right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-width: 1px;
+}
