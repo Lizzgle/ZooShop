@@ -26,7 +26,7 @@ from plotly.graph_objects import Bar, Layout, Figure
 # Create your views here.
 
 def index(request):
-    category = Category.objects.all()
+    category = Category.objects.all().order_by('order')
 
     last_news = News.objects.last()
 

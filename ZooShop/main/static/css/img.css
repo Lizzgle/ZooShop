@@ -3,3 +3,14 @@
     max-width: 100%;
 }
 
+.img-round {
+    /*max-height: 100%;*/
+    /*max-width: 100%;*/
+    border-radius: 1000px !important; /* Радиус скругления */
+    border: 3px solid #FEC40E !important;
+    box-shadow: 0 0 7px #c79815;
+}
+
+.company-callout__img {
+    transform: rotate(375grad);
+}

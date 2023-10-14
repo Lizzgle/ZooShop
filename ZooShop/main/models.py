@@ -15,8 +15,12 @@ from django.utils import timezone
 
 class Category(models.Model):
     name = models.CharField(max_length=30, unique=True)
+    order = models.PositiveIntegerField(default=0)
 
     image = models.ImageField(upload_to='category_images/')
+
+    class Meta:
+        ordering = ['order']
 
     class Meta:
         verbose_name = "Category"

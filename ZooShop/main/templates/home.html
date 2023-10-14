@@ -3,17 +3,15 @@
 {% block content %}
 
 
-
-{% load static %}
-<div class="background-container section1">
+{##}
+{#{% load static %}#}
+{#<div class="background-container section1">#}
 {#<div class="section1">#}
-
+{##}
+{#</div>#}
+{##}
 {#</div>#}
 
-{#<div class="section2">#}
-  <!-- Содержимое второй секции -->
-{#</div>#}
-</div>
 
 <div class="carousel-inner active">
     <div class="carousel-item">
@@ -52,22 +50,21 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4 h-25">
 
-    {% for el in category %}
-        <a href="{% url 'products' %}?category={{ el.id }}" style="text-decoration: none">
-    <div class="col">
-        <div class="card h-75">
-            <img src="{{ el.image.url }}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <a href="{{ el.id }}">{{ el.name }}</a>
-{#          <h5 class="card-title">Card title</h5>#}
-            <p class="card-text">{{ el.price }}</p>
-        </div>
-        </div>
-  </div>
-    {% endfor %}
-{#    </div>#}
+<h1 style="">Categories</h1>
+    <div class="grid-container col-3">
+        {% for el in category %}
+{#            <div class="card category-card">#}
+                <a href="{% url 'products' %}?category={{ el.id }}" style="text-decoration: none" class="card category-card">
+                    <img src="{{ el.image.url }}" class="img-products-all" alt="...">
+{#                    <a href="{{ el.id }}">{{ el.name }}</a>#}
+                </a>
+{#            </div>#}
+        {% endfor %}
+    </div>
+
+
+
 
     <h3>Last News</h3>
      <a href="{% url 'news_info' id=last_news.id %}" style="text-decoration: none">
@@ -164,29 +161,27 @@
 {#</div>#}
 {#    </div>#}
 
-
-    <div class="container text-center border-2">
-  <div class="row row-cols-4">
-    <div class="col" >
+<div class="grid-container col-4">
+    <div class="card card-img img-round">
         <a href="https://www.felix-club.ru/">
             <img src="../static/img/felix.jpg" height="100">
         </a>
     </div>
-    <div class="col">
+    <div class="card card-img img-round">
         <a href="https://www.purina.com/pro-plan">
             <img src="../static/img/pro_plan.png" height="100">
         </a>
     </div>
-    <div class="col">
+    <div class="card card-img img-round">
         <a href="https://www.acana.com/en-US/homepage">
             <img src="../static/img/acana.webp" height="70">
         </a>
     </div>
-    <div class="col">
+    <div class="card card-img img-round">
         <a href="https://www.royalcanin.com/nl">
             <img src="../static/img/royal_canin.jpg" height="100">
         </a>
     </div>
-  </div>
 </div>
+
 {% endblock %}
