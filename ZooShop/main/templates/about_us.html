@@ -18,68 +18,69 @@
 
     <h5 class="card-title">We improve the quality of life of pets and their owners.</h5>
 
-    <div class="company-callout" style="align-content: center">
-    <div class="cw-row" style="display: flex;">
-    <div class="cw-row__item">
-{#    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
-        <h5>2010</h5>
-        <p class="card-text">Зоомагазин "Pet Paradise" открыл свои двери в 2020 году.</p>
-    </div>
-
-    <div class="cw-row__item company-callout__img">
-      <p class="card-text"><small class="text-body-secondary"></small></p>
-    </div>
-    <div class="cw-row__item company-callout__img">
-      <p class="card-text"><small class="text-body-secondary"></small></p>
-    </div>
-    <div class="cw-row__item company-callout__img">
-    <p class="card-text"><small class="text-body-secondary"></small></p>
-    </div>
-    <div class="cw-row__item company-callout__img">
-      <p class="card-text"><small class="text-body-secondary"></small></p>
-    </div>
-    </div>
-    </div>
+   <ul class="history">History</ul>
+    <li>2010: Мы открылись</li>
+    <li>2014: У нас 50 магазинов</li>
+    <li>2020: Приз "Лучший зоомагазин"</li>
 
 
     <video src="../static/video/reklama-zoomagazina-priroda_(VIDEOMIN.NET).mp4" class="" autoplay muted style="width: 100%"></video>
 
     <audio controls src="../static/audio/zvuki-kitov.mp3" ></audio>
-    {% load static %}
-    <img src="{% static 'img/sert.jpg' %}">
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th scope="col" headers="header1">#</th>
-        <th scope="col" headers="header2">Photo</th>
-{#        <th scope="col">First Name</th>#}
-{#        <th scope="col">Last Name</th>#}
-        <th scope="col" headers="header3">Phone</th>
-        <th scope="col" headers="header4">Birthdate</th>
-        <th scope="col" headers="header5">List of Suppliers</th>
-    </tr>
-  </thead>
-    <tbody>
 
-    {% for p in profiles %}
-        <tr>
-        <th scope="col" headers="header1">{{ p.id }}</th>
-        <th scope="col" headers="header2">
-            <img src="{{ p.icon.url }}" height="50">
-        </th>
-{#        <th scope="col">{{ p.user.first_name }}</th>#}
-{#        <th scope="col">{{ p.user.last_name }}</th>#}
-        <th scope="col" headers="header3">{{ p.phone }}</th>
-        <th scope="col" headers="header4">{{ p.birthdate }}</th>
-        <th scope="col" headers="header5">
-        {% for s in p.supplier.all %}
-            <p>{{ s.company_name }}</p>
+    {% load static %}
+
+    <div class="sertificat">
+        <h1>Sertificate</h1>
+        <pre>
+                                                                                                                Название магазина: ZooShop
+                                                                                                                Адрес: Варшавская 51-89, Лида, 231300
+                                                                                                                Телефон: +375 (44) 486-7048
+                                                                                                                Электронная почта: lizaglebtsova@gmail.com
+
+
+                                                       <strong>Сертификат о соответствии
+                                                    качества продукции для животных</strong>
+
+
+     <b>Описание продукции:</b>
+     - Корм для собак и кошек
+     - Аксессуары для попугаев
+     - Аквариумы и аксессуары для рыб
+     и другие товары для домашних животных
+
+     <b>Стандарты качества:</b>
+     - Соответствие стандартам безопасности
+     - Соответствие стандартам качества питания
+
+     <b>Процедуры контроля качества:</b>
+     - Входной контроль товара при поступлении
+     - Регулярные проверки качества на складе
+
+     <b>Результаты проверок и тестов:</b>
+     - Корм для собак прошел тест на безопасность
+     - Аксессуары для попугаев прошли проверку качества
+
+
+    <small>Срок действия сертификата:        <wbr>с 1 октября 2023 г. до 1 октября 2024 г.</small>
+            </pre>
+    </div>
+
+    <div class="employee-list">
+        {% for p in profiles %}
+            <div class="employee">
+                <p>{{ p.id }}</p>
+                <img src="{{ p.icon.url }}" height="50">
+                <p>{{ p.phone }}</p>
+                <p>{{ p.birthdate }}</p>
+                {% for s in p.supplier.all %}
+                    <h3>{{ s.company_name }}</h3><br>
+                {% endfor %}
+            </div>
         {% endfor %}
-        </th>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+
+  <!-- Добавьте других сотрудников по аналогии -->
+</div>
 
     {% for f in feedback %}
         <h3>{{ f.user }}</h3>

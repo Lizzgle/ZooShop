@@ -28,10 +28,27 @@ h3 {
     hyphens: auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4 {
     text-transform: uppercase;
+}
+h5, h6 {
+    font-variant: small-caps;
 }
 
 #text {
     text-transform: uppercase;
+}
+
+.news {
+    height: 97px;
+}
+
+.card-text-min {
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-text {
+    columns: 300px 3;
 }

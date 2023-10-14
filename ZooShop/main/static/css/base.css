@@ -31,3 +31,21 @@ div.center {
     align-items: center;
     height: 100vh;
 }
+
+.employee-list {
+  display: flex;
+  justify-content: space-around; /* Равномерное распределение сотрудников по горизонтали */
+  flex-wrap: wrap; /* Перенос элементов на новую строку при нехватке места */
+}
+
+.employee {
+  width: 300px;
+  margin: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.employee img {
+  max-width: 100%;
+}

@@ -30,3 +30,23 @@
 .full {
     width: 1519px;
 }
+
+.sertificat {
+    border: 30px solid #40c4c8;
+    padding: 20px;
+    -webkit-border-image: url(../img/for-sert.jpg) 550 round round;
+    border-image: url(../img/for-sert.jpg) 550 round round;
+
+
+    width: 780px;
+    background-image: url("../img/fon.jpg");
+    background: linear-gradient(196.82deg,rebeccapurple,yellow);
+    z-index: auto;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+.sertificat > h1 {
+    text-align: center;
+}
