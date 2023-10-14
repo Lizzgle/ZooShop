@@ -82,3 +82,7 @@
 /*.card-body {*/
 /*    width: 90%;*/
 /*}*/
+
+.not-float {
+    clear: both;
+}

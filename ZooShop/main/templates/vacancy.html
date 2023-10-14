@@ -3,9 +3,13 @@
 {% block content %}
     <div class="list-group">
     {% for v in vacancy %}
-        <h3>{{ v.name }}</h3>
+        <img src="{{ v.image.url }}" class="icon">
+        <div  style="float: right; align-self: center">
+        <h3>{{ v.name }}</h3><br>
         <p>{{ v.salary }}</p>
-        <p>{{ v.discription }}</p>
+        </div>
+
+        <p class="not-float">{{ v.discription }}</p>
     {% endfor %}
 </div>
 {% endblock %}

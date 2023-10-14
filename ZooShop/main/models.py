@@ -189,6 +189,7 @@ class Vacancy(models.Model):
     name = models.CharField(max_length=155)
     salary = models.PositiveIntegerField()
     discription = models.TextField()
+    image = models.ImageField(upload_to='vacancy_images/', null=True)
 
 class Sales(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

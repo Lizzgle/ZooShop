@@ -50,3 +50,8 @@
 .sertificat > h1 {
     text-align: center;
 }
+
+.icon {
+    height: 200px;
+    margin-left: 40%;
+}
