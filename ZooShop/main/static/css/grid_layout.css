@@ -3,7 +3,7 @@
 }
 
 .col-4 {
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     grid-gap: 20px 40px;
     padding: 10px;
 }
@@ -14,11 +14,12 @@
     /*max-height: 1000px;*/
 }
 
-.card-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
+.card-product {
+    border: 3px solid #a49004;
+    border-radius: 0.375rem;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
 }
 
 .col1 {
@@ -50,7 +51,6 @@
         grid-row: span 2;
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
-
     }
 
     /* Последний элемент (занимает 2 столбца) */

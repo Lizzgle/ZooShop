@@ -3,6 +3,10 @@
     max-width: 100%;
 }
 
+.carousel-img {
+    max-width: 100%;
+}
+
 .img-round {
     /*max-height: 100%;*/
     /*max-width: 100%;*/
@@ -13,4 +17,16 @@
 
 .company-callout__img {
     transform: rotate(375grad);
+}
+
+.card-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    max-width: 100%;
+}
+
+.full {
+    width: 1519px;
 }

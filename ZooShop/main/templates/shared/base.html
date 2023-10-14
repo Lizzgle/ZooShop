@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{% static 'css/grid_layout.css' %}">
 <link rel="stylesheet" href="{% static 'css/img.css' %}">
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'css/carousel.css' %}">
 
     {% block extra_css %}{% endblock %}
 </head>
@@ -93,6 +94,18 @@
 
         </nav>
     </header>
+
+    <script>
+        // JavaScript для отслеживания прокрутки страницы
+        window.onscroll = function() {
+            if (window.scrollY > 50) { // Если пользователь прокрутил более 50 пикселей вниз
+                document.querySelector('.navbar').classList.add('navbar-scrolled'); // Добавляем класс с измененными стилями
+            } else {
+                document.querySelector('.navbar').classList.remove('navbar-scrolled'); // Удаляем класс
+            }
+        };
+    </script>
+
 {% load static %}
     <main>
         {% block content %}

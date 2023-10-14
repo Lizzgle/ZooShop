@@ -29,10 +29,15 @@ def index(request):
     category = Category.objects.all().order_by('order')
 
     last_news = News.objects.last()
-
+    latest_news = News.objects.order_by('-date')[:3]
+    # for i in range(n):
+    # latest_news =
+    n = range(100)
     context = {
         'category': category,
         'last_news': last_news,
+        'latest_news': latest_news,
+        'n': n
     }
 
     return render(request, 'home.html', context)

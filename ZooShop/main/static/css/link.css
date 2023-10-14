@@ -3,23 +3,26 @@ a {
     text-decoration: none; /* Отключение подчеркивания */
 }
 
-a:visited {
+a:visited, .navbar-scrolled a {
     color: #1e1f22; /* Цвет текста для посещенных ссылок */
 }
 
-a:hover {
+a:hover, .navbar-scrolled a {
     color: #ffdd00; /* Изменение цвета при наведении курсора */
     text-decoration: Highlight; /* Подчеркивание при наведении */
     cursor: pointer;
 }
 
-a:active {
+a:active, .navbar-scrolled a {
     color: #a49004; /* Изменение цвета при нажатии */
 }
 
 a:focus {
     outline: 2px solid #ffdd00; /* Окантовка ссылки при фокусе */
 }
+
+
+
 
 a.btn {
     border-radius:  0.375rem;

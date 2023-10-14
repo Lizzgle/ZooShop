@@ -1,8 +1,25 @@
 .navbar {
     padding: 0 0;
     display: flex;
-
+    position: fixed;
+    background-color: rgba(30, 31, 34, 0.3);
+    width: 100%;
+    z-index: 100;
 }
+
+.navbar-scrolled {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+.navbar-scrolled a {
+    color: white; /* Цвет ссылок при измененном фоне */
+}
+
+.navbar-scrolled a:hover:not(.btn){
+    color: #ffdd00;
+}
+
+
 
 ul {
     display: flex;
@@ -17,6 +34,10 @@ li {
     height: 48px;
     vertical-align: center;
     /*display: list-item;*/
+}
+
+.nav-item {
+    height: auto;
 }
 
 a {

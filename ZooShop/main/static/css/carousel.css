@@ -1,0 +1,35 @@
+.news-carousel {
+    width: 100%; /* Задайте ширину и высоту карусели */
+    /*height: 200px;*/
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slides {
+    display: flex;
+    animation: carousel 500s linear infinite; /* Измените продолжительность и скорость анимации */
+}
+
+.carousel-item {
+    width: 1280px; /* Ширина каждого слайда */
+    /*height: 100%; !* Высота каждого слайда *!*/
+    flex-shrink: 0;
+}
+
+@keyframes carousel {
+    0% {
+        transform: translateX(0);
+    }
+    33.33% {
+        transform: translateX(-1000%);
+    }
+    66.67% {
+        transform: translateX(-2000%);
+    }
+    99.999% {
+        transform: translateX(-3000%);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
