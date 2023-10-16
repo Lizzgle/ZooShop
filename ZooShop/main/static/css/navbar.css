@@ -1,14 +1,17 @@
 .navbar {
     padding: 0 0;
     display: flex;
-    position: fixed;
+    position: sticky;
+    top:0;
     background-color: rgba(30, 31, 34, 0.3);
     width: 100%;
     z-index: 100;
+    /*transition: position 0.3s ease;*/
 }
 
 .navbar-scrolled {
             background-color: rgba(0, 0, 0, 0.8);
+    /*position: fixed;*/
         }
 
 .navbar-scrolled a {
@@ -21,14 +24,14 @@
 
 
 
-ul {
+[class="navbar-nav"] {
     display: flex;
     align-content: center;
     list-style-type: none;
     align-items: center;
 }
 
-li {
+.nav-item {
     padding: 10px;
     align-content: center;
     height: 48px;

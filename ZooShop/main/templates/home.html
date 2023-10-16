@@ -2,15 +2,8 @@
 
 {% block content %}
 
-
-{##}
 {% load static %}
-{#<div class="background-container section1">#}
-{#<div class="section1">#}
-{##}
-{#</div>#}
-{##}
-{#</div>#}
+
 
     <img class="full" src="{% static 'img/main.jpeg' %}">
 
@@ -49,7 +42,8 @@
     <div class="news-carousel">
 
 </div>
-
+<div class="grid-container col-2">
+<div class="card">
     <h3>Факты о котах</h3>
 
     <button id="getCatFactBtn">Получить факт о коте</button>
@@ -57,27 +51,24 @@
     <div id="catFactContainer">
         <!-- Здесь будут отображаться факты о котах -->
     </div>
+</div>
 
-    <script>
-        // Функция для отправки запроса на сервер и отображения фактов о котах
-        function getCatFact() {
-        // Отправляем GET-запрос на сервер для получения факта о коте
-        fetch('https://catfact.ninja/fact')
-            .then(response => response.json())
-            .then(data => {
-                // Вставляем факт о коте в контейнер
-                const catFactContainer = document.getElementById('catFactContainer');
-                catFactContainer.innerHTML = `<p>${data.fact}</p>`;
-            })
-            .catch(error => {
-                console.error('Ошибка при получении факта о коте:', error);
-            });
-    }
+    <div class="card dog">
 
-    // Добавляем обработчик события на кнопку
-    const getCatFactBtn = document.getElementById('getCatFactBtn');
-    getCatFactBtn.addEventListener('click', getCatFact);
-    </script>
+
+<div id="dogImageContainer" style="height: auto; width: 100%;">
+    <!-- Здесь будет отображаться случайное изображение собаки -->
+</div>
+
+</div>
+<h3>Случайные изображения собак</h3>
+
+    <button id="getRandomDogBtn">Click</button>
+
+</div>
+
+
+
 
     <div class="card" style="width: 18rem;">
         <div id="dogImageContainer" class="card-img-top" style="box-sizing: border-box; max-width: 18rem; max-height: 18rem; overflow: hidden;">
@@ -92,13 +83,7 @@
 </div>
 
 
-    <h3>Случайные изображения собак</h3>
 
-    <button id="getRandomDogBtn">Получить случайное изображение собаки</button>
-
-<div id="dogImageContainer">
-    <!-- Здесь будет отображаться случайное изображение собаки -->
-</div>
 
 <script>
     // Функция для отправки запроса на сервер и отображения случайного изображения собаки
@@ -154,5 +139,28 @@
         </a>
     </div>
 </div>
+
+
+
+    <script>
+        // Функция для отправки запроса на сервер и отображения фактов о котах
+        function getCatFact() {
+        // Отправляем GET-запрос на сервер для получения факта о коте
+        fetch('https://catfact.ninja/fact')
+            .then(response => response.json())
+            .then(data => {
+                // Вставляем факт о коте в контейнер
+                const catFactContainer = document.getElementById('catFactContainer');
+                catFactContainer.innerHTML = `<p>${data.fact}</p>`;
+            })
+            .catch(error => {
+                console.error('Ошибка при получении факта о коте:', error);
+            });
+    }
+
+    // Добавляем обработчик события на кнопку
+    const getCatFactBtn = document.getElementById('getCatFactBtn');
+    getCatFactBtn.addEventListener('click', getCatFact);
+    </script>
 
 {% endblock %}

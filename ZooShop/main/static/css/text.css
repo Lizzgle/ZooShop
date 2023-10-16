@@ -52,3 +52,7 @@ h5, h6 {
 .card-text {
     columns: 300px 3;
 }
+
+[class|="sales"] {
+    list-style-type: square;
+}

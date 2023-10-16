@@ -2,9 +2,10 @@
 {% load tz %}
 
 {% block content %}
-    <div class="list-group">
-    {% for s in sales %}
-        {% now "Y-m-d" as current_date %}
+    <ul class="sales-ul">
+        {% for s in sales %}
+            <li>
+             {% now "Y-m-d" as current_date %}
         {% if s.to_date|date:"Y-m-d" < current_date %}
             <div style="background-color: darkgray">
                 <h3 style="text-decoration: line-through;">{{ s.product }}</h3>
@@ -22,6 +23,11 @@
             </div>
             <hr>
         {% endif %}
+
+            </li>
     {% endfor %}
-</div>
+
+    </ul>
+
+
 {% endblock %}

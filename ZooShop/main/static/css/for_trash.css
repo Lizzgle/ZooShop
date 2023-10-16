@@ -68,4 +68,34 @@ input[type="radio"]:checked + label {
 
 }
 
+.table-trash {
+    border-collapse: collapse;
+    empty-cells: show;
 
+}
+
+td:empty {
+    background-color: #c58c77;
+}
+
+td {
+    text-align: start;
+    vertical-align: middle;
+}
+
+.td-num {
+    text-align: center;
+}
+td, th {
+    border: 1px solid grey;
+}
+
+
+tr:hover {
+    background-color: khaki;
+}
+
+
+caption {
+    caption-side: top;
+}
