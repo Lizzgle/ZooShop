@@ -24,9 +24,6 @@
     66.67% {
         transform: translateX(-2000%);
     }
-    99.999% {
-        transform: translateX(-3000%);
-    }
     100% {
         transform: translateX(0px);
     }

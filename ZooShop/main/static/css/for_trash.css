@@ -1,15 +1,12 @@
 .specific {
-  list-style-type: none; /* Прячем маркеры списка */
+  list-style-type: none;
 }
 
 .specific li:before {
-  content: "\2716"; /* Добавляем перед элементом списка символ в юникоде */
+  content: "\2716";
 }
 
-
-
 tr:first-child, li:first-child {
-    /*background: aquamarine;*/
      background: linear-gradient(196.82deg,rebeccapurple,yellow);
 }
 
@@ -67,11 +64,14 @@ input[type="radio"]:checked + label {
 							0 0 1em yellow;
 
 }
+input {
+    cursor: se-resize;
+}
 
 .table-trash {
     border-collapse: collapse;
     empty-cells: show;
-
+    position: static;
 }
 
 td:empty {
@@ -99,3 +99,4 @@ tr:hover {
 caption {
     caption-side: top;
 }
+

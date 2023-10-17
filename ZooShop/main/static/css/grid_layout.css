@@ -11,7 +11,6 @@
 .col-3 {
     grid-template-columns: auto auto auto;
     margin: auto;
-    /*max-height: 1000px;*/
 }
 
 .col-2 {
@@ -41,10 +40,7 @@
     text-align: center;
 }
 
-/*.img- {*/
-/*    height: 280px;*/
 
-/*}*/
 
 .category-card {
     /*border-radius: 1rem;*/
@@ -85,9 +81,7 @@
     text-align: start;
     padding-left: 20px;
 }
-/*.card-body {*/
-/*    width: 90%;*/
-/*}*/
+
 
 .not-float {
     clear: both;
@@ -98,5 +92,4 @@
     height: 200px;
     width: auto;
     background-repeat: no-repeat;
-
 }
