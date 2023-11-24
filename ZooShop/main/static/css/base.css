@@ -23,8 +23,6 @@ pre {
     text-align: center;
 }
 
-
-
 div.center {
     display: flex !important;
     justify-content: center;
@@ -48,10 +46,4 @@ div.center {
 
 .employee img {
   max-width: 100%;
-}
-
-@media (max-width: 1080px)  {
-    html {
-        background-color: #e7dda4;
-    }
 }

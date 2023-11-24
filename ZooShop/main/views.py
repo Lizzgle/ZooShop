@@ -363,3 +363,12 @@ def statistics(request):
         'plot_div': plot_div,
     }
     return render(request, 'static_info.html', content)
+
+
+def our_products(request):
+    number = range(300)
+
+    content = {
+        'number': number,
+    }
+    return render(request, 'our_products.html', content)

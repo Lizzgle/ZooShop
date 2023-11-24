@@ -44,7 +44,7 @@
     border-image: url(../img/for-sert.jpg) 550 round round;
     width: 780px;
     background-image: url("../img/fon.jpg");
-    background: linear-gradient(196.82deg,rebeccapurple,yellow);
+    background: linear-gradient(196.82deg, #b21d03, yellow);
     z-index: auto;
 }
 

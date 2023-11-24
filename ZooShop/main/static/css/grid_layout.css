@@ -2,6 +2,14 @@
     display: grid;
 }
 
+.col-5 {
+    grid-template-columns: repeat(auto-fit, minmax(216px, 1fr));
+    /*grid-gap: 20px 40px;*/
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .col-4 {
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     grid-gap: 20px 40px;

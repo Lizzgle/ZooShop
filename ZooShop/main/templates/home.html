@@ -66,26 +66,7 @@
     <button id="getRandomDogBtn">Click</button>
 
 {#</div>#}
-
-
-
-
-    <div class="card" style="width: 18rem;">
-        <div id="dogImageContainer" class="card-img-top" style="box-sizing: border-box; max-width: 18rem; max-height: 18rem; overflow: hidden;">
-            <!-- Здесь будет отображаться случайное изображение собаки -->
-        </div>
-{#        <img id="dogImageContainer" class="card-img-top" alt="...">#}
-        <div class="card-body">
-            <h5 class="card-title">Случайные изображения собак</h5>
-            <button id="getRandomDogBtn">Получить случайное изображение собаки</button>
-            <a class="btn btn-primary" id="getRandomDogBtn">Go somewhere</a>
-  </div>
-</div>
-
-
-
-
-<script>
+    <script>
     // Функция для отправки запроса на сервер и отображения случайного изображения собаки
     function getRandomDogImage() {
         // Отправляем GET-запрос на сервер для получения случайного изображения собаки
@@ -106,16 +87,6 @@
     getRandomDogBtn.addEventListener('click', getRandomDogImage);
 </script>
 
-
-{#    <div class="float-sm-end">#}
-{#        <div class="card text-bg-danger mb-3" style="max-width: 18rem; ">#}
-{#  <div class="card-header">Header</div>#}
-{#  <div class="card-body">#}
-{#    <h5 class="card-title">Danger card title</h5>#}
-{#    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
-{#  </div>#}
-{#</div>#}
-{#    </div>#}
 
 <div class="grid-container col-4">
     <div class="card card-img img-round">

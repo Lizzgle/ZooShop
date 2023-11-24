@@ -30,6 +30,8 @@ urlpatterns = [
     re_path(r'^profile/(?P<id>\d+)/$', views.ShowProfilePageView.as_view(), name='profile'),
 
     re_path(r'^about_us/$', views.about, name='about_us'),
+    re_path(r'our_products', views.our_products, name='our_products'),
+    # re_path(r'our_products/(?P<id>.+)/$', views., name='news_info'),
     re_path(r'news/$', views.news, name='news-detail'),
     re_path(r'news/(?P<id>.+)/$', views.NewsDetailView.as_view(), name='news_info'),
 

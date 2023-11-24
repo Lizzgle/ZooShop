@@ -1,0 +1,58 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    {% load static %}
+    <section id="top">
+        <img src="{% static 'img/petix/petix-fon.png' %}" id="bg" />
+        <img src="{% static 'img/petix/petix-pack-left.png' %}" class="pack" id="pack_left" />
+        <img src="{% static 'img/petix/petix-pack-right.png' %}" class="pack" id="pack_right" />
+        {% for n in number %}
+            <img src="{% static 'img/petix/petix-apple.png' %}" class="apple">
+        {% endfor %}
+    </section>
+    <section class="grid-container col-5">
+    	<div class="card1">
+            <img src="{% static 'img/petix/petic-card-star.jpg' %}">
+        </div>
+        <div class="card1">
+            <img src="{% static 'img/petix/petix-card-veg.jpg' %}">
+        </div>
+        <div class="card1">
+            <img src="{% static 'img/petix/petix-card-leaf.jpg' %}">
+        </div>
+        <div class="card1">
+            <img src="{% static 'img/petix/petix-card-apple.jpg' %}">
+        </div>
+        <div class="card1">
+            <img src="{% static 'img/petix/petix-card-pumpkin.jpg' %}">
+        </div>
+        </section>
+
+{#    <section class="carousel" style="display: block">#}
+        <div id="banners">
+            <a href="#" class="banner">
+                <img src="{% static 'img/petix/petix-veg.jpg' %}" alt="Banner 1">
+            </a>
+            <a href="#" class="banner" style="display: none;">
+                <img src="{% static 'img/petix/petix-pumpkin.jpg' %}" alt="Banner 2">
+            </a>
+            <a href="#" class="banner" style="display: none;">
+                <img src="{% static 'img/petix/petix-leaf.jpg' %}" alt="Banner 3">
+            </a>
+
+            <a href="#" class="banner" style="display: none;">
+                <img src="{% static 'img/petix/petix-apple-fon.png' %}" alt="Banner 4">
+            </a>
+</div>
+
+   {% if user.is_superuser %}
+       <form id="controls">
+  <label for="interval">Интервал (в секундах):</label>
+  <input type="number" id="interval" value="5">
+</form>
+{% endif %}
+
+{#    </section>#}
+    <script src="{% static 'js/our_products.js' %}"></script>
+    <script src="{% static 'js/carousel.js' %}"></script>
+{% endblock %}
