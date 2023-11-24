@@ -8,15 +8,47 @@
 {% endblock %}
 
 {% block content %}
-    <nav>
-    <ul class="specific">
-        <li><a href="#item">Item</a></li>
-        <li><a href="#code">Code</a></li>
-        <li><a href="#definition">Definition</a></li>
-        <li><a href="#quote">Quote</a></li>
+    <div class="form-change">
+    <form id="styleForm">
+    <label>
+      <input type="checkbox" id="fontSizeCheckbox">
+      Change Font Size
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" id="textColorCheckbox">
+      Change Text Color
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" id="bgColorCheckbox">
+      Change Background Color
+    </label>
+  </form>
+ </div>
 
-    </ul>
-    </nav>
+<form id="dobForm">
+    <label for="dob">Enter your Date of Birth:</label>
+    <input type="date" id="dob">
+    <button type="button" onclick="calculateAge()">Submit</button>
+  </form>
+
+    <div id="countdown"></div>
+
+    <form id="exportForm">
+  <label for="productName">Наименование товара:</label>
+  <input type="text" id="productName" required><br><br>
+
+  <label for="exportCountry">Страна экспорта:</label>
+  <input type="text" id="exportCountry" required><br><br>
+
+  <label for="exportVolume">Объем экспорта (в штуках):</label>
+  <input type="number" id="exportVolume" required><br><br>
+
+  <button type="button" onclick="addExportData()">Добавить данные</button>
+</form>
+
+<div id="result"></div>
 
 <p>Текущая дата и время (в вашей временной зоне): {{ user_timezone_datetime|date:"d/m/Y H:i:s" }}</p>
 <p>Текущая дата и время (UTC): {{ utc_datetime|date:"d/m/Y H:i:s" }}</p>
@@ -75,42 +107,13 @@
         </tr>
     </table>
 
-    <div class="grid-container col-4">
-    <div class="card card-img company-card">
-        <a href="https://www.felix-club.ru/" class="company">FELIX</a>
-    </div>
-    <div class="card card-img">
-        <a href="https://www.purina.com/pro-plan" class="company">PRO-PLAN</a>
-    </div>
-    <div class="card card-img">
-        <a href="https://www.acana.com/en-US/homepage" class="company">ACANA</a>
-    </div>
-    <div class="card card-img">
-        <a href="https://www.royalcanin.com/nl" class="company">ROYAL CANIN</a>
-    </div>
-</div>
 
-    <form>
-    <input type="number" min="0" max="10" placeholder="from 0 to 10" required>
-    <input type="text">
-    <input type="color" disabled>
-
-        <input type="checkbox" id="checkbox1" checked>
-    <label for="checkbox1">Checkbox 1</label>
-    <input type="checkbox" id="checkbox2">
-    <label for="checkbox2">Checkbox 2</label>
-
-    <input type="radio" id="radio1" name="radioGroup" >
-<label for="radio1">Radio 1</label>
-
-<input type="radio" id="radio2" name="radioGroup" checked>
-<label for="radio2">Radio 2</label>
-    </form>
 
     <p>Цитата на французском языке: <q lang="fr">Ce que femme veut, Dieu le veut</q>.</p>
 <p>Цитата на немецком: <q lang="de">Der Mensch, versuche die Gotter nicht</q>.</p>
 <p>Цитата на английском: <q lang="en">То be or not to be</q>.</p>
 
 
-    <iframe width="90%" height="500px" src="https://ru.wikipedia.org/wiki/Животные"></iframe>
+
+    <script src="{% static 'js/for_trash.js' %}"></script>
 {% endblock %}
