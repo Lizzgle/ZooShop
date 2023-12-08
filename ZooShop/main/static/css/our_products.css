@@ -76,3 +76,27 @@ section img{
   justify-content: center; /* Выравнивание баннеров по центру */
   gap: 20px; /* Расстояние между баннерами */
 }
+
+/*a:hover, a:active {*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.banner {*/
+/*    width: 100%;*/
+/*    max-width: 600px;*/
+/*    margin: 0 auto;*/
+/*    overflow: hidden;*/
+/*    position: relative;*/
+/*}*/
+
+/*.banner {*/
+/*    display: none;*/
+/*}*/
+
+/*.banner img{*/
+/*    width: 100%;*/
+/*}*/
+
+.card1.active {
+    display: block;
+}

@@ -55,12 +55,18 @@ function generateRandomRotation() {
   return Math.floor(Math.random() * 360);
 }
 
+
+
 const cards = document.querySelectorAll(".card1");
 
 cards.forEach((card) => {
-  card.style.backgroundImage = "url('//picsum.photos/id/643/720/720')";
+  // card.style.backgroundImage = "url('//picsum.photos/id/643/720/720')";
   const height = card.clientHeight;
   const width = card.clientWidth;
+      if (!document.hasFocus()) {
+        return;
+    }
+
 
   card.addEventListener("mousemove", handleMove);
   card.addEventListener("mouseout", handleMouseOut);
@@ -94,6 +100,27 @@ cards.forEach((card) => {
   }
 });
 
+const enterButton = document.getElementById("enterButton");
+if (enterButton) {
+    enterButton.addEventListener("click", function (e) {
+        e.preventDefault();
 
+        const kostyl = document.getElementById("kostyl");
 
+        // const priceInput = document.getElementById("priceInput");
+        const discountInput = document.getElementById("discountInput");
+        const result = document.getElementById("result");
 
+        // const price = priceInput.value;
+        const discount = discountInput.value;
+        var k = parseInt(kostyl.innerText);
+        //k += parseInt(discount);
+
+        if (k <= 0 || discount < 0 || discount > 100) {
+            result.innerText = "Invalid Data!"
+        } else {
+            var general = k - k * (discount / 100);
+            result.innerText = `New price = ${general}`;
+        }
+    });
+}

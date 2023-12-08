@@ -19,7 +19,7 @@ from django.views import View, generic
 from main.forms import UserProfileCreationForm, ProductUpdateForm, ProductDeleteForm, PurchaseCreateForm, \
     ProductCreateForm, FeedbackCreateForm
 from main.models import Product, Category, Profile, Purchase, Supplier, News, Faq, Employee, Vacancy, Sales, \
-    Feedback
+    Feedback, Company
 from plotly.graph_objects import Bar, Layout, Figure
 
 
@@ -368,7 +368,41 @@ def statistics(request):
 def our_products(request):
     number = range(300)
 
+    company = Company.objects.get(name='Petix')
+    products = Product.objects.filter(company=company)
+
+    # try:
+    #     service = Service.objects.get(id=id)
+    #     service_price = service.price
+    # except Service.DoesNotExist:
+    #     raise Http404("Service doesn't exist :(")
+    # return render(
+    #     request,
+    #     'CosmetologyApp/service_detail.html',
+    #     context={'service': service,
+    #              'service_price': service_price}
+    # )
+
+    product = Product.objects.get(name='Petix Vegetable meat')
+    product_price = product.price
+
+    coupons = Sales.objects.filter(user=request.user)
+    coupon = Sales.objects.filter(discription='Happy New Year')
+
+    # promo_code = request.GET.get(article='664')
+    # try:
+    #     promo = Sales.objects.get(product=promo_code)
+    #     discount = promo.persent
+    # except Sales.DoesNotExist:
+    #     discount = 0
+
     content = {
         'number': number,
+        'products': products,
+        'coupons': coupons,
+        'coupon': coupon,
+        # 'discount': discount,
+        'product': product,
+        'product_price': product_price
     }
     return render(request, 'our_products.html', content)

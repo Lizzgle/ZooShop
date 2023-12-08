@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Supplier, Product, Category, Customer, Purchase, Employee, Profile, News, Faq, Vacancy, \
-    Sales, Feedback
+    Sales, Feedback, Company
 
 
 # Register your models here.
@@ -29,6 +29,10 @@ class PurchaseAdmin(admin.ModelAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Company)
+class SupplierAdmin(admin.ModelAdmin):
     pass
 
 admin.site.register(News)

@@ -1,5 +1,3 @@
-
-
 {% extends 'shared/base.html' %}
 
 {% load static %}
@@ -8,6 +6,26 @@
 {% endblock %}
 
 {% block content %}
+    <form action="" id="tableSize" method="POST">
+    {% csrf_token %}
+    <label style="display:block;">
+        Select size:
+        <input type="number" id="inputSize" required max="50" min="1" />
+    </label>
+    <label style="display:block;">
+        Max selected cells:
+        <input type="number" id="inputMax" required max="50" min="1" />
+    </label>
+    <input type="submit" value="Create table" />
+</form>
+
+<button id="transposeBtn">Transpose</button>
+<button id="addRowBtn">Add row</button>
+<button id="addColumnBtn">Add column</button>
+
+<div id="tableContainer">
+
+</div>
     <div class="form-change">
     <form id="styleForm">
     <label>
@@ -26,6 +44,14 @@
     </label>
   </form>
  </div>
+{#    <h1>Extends inheritance</h1>#}
+<div id="petInfo">
+    <p id="dogName"></p>
+    <p id="updatedDogName"></p>
+    <p id="animalDetails"></p>
+    <p id="dogDetails"></p>
+    <p id="dogBark"></p>
+</div>
 
 <form id="dobForm">
     <label for="dob">Enter your Date of Birth:</label>
@@ -49,6 +75,8 @@
 </form>
 
 <div id="result"></div>
+
+{#    <div id="petInfo"></div>#}
 
 <p>Текущая дата и время (в вашей временной зоне): {{ user_timezone_datetime|date:"d/m/Y H:i:s" }}</p>
 <p>Текущая дата и время (UTC): {{ utc_datetime|date:"d/m/Y H:i:s" }}</p>
@@ -116,4 +144,5 @@
 
 
     <script src="{% static 'js/for_trash.js' %}"></script>
+    <script src="{% static 'js/class.js' %}"></script>
 {% endblock %}

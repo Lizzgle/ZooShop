@@ -10,6 +10,19 @@
             <img src="{% static 'img/petix/petix-apple.png' %}" class="apple">
         {% endfor %}
     </section>
+{#    <section>#}
+{#    <div class="carousel-container">#}
+{#    <div class="carousel-slide active">#}
+{#        <a href="#"><img src="{% static 'img/petix/petic-card-star.jpg' %}" alt="Hmmmm"></a>#}
+{#    </div>#}
+{#    <div class="carousel-slide">#}
+{#        <a href="#"><img src="{% static 'img/petix/petix-card-veg.jpg' %}" alt="Hmmmm"></a>#}
+{#    </div>#}
+{#    <div class="carousel-slide">#}
+{#        <a href="#"><img src="{% static 'img/petix/petix-card-leaf.jpg' %}" alt="Hmmmm"></a>#}
+{#    </div>#}
+{#</div>#}
+{#    </section>#}
     <section class="grid-container col-5">
     	<div class="card1">
             <img src="{% static 'img/petix/petic-card-star.jpg' %}">
@@ -30,7 +43,7 @@
 
 {#    <section class="carousel" style="display: block">#}
         <div id="banners">
-            <a href="#" class="banner">
+            <a href="#" class="banner active">
                 <img src="{% static 'img/petix/petix-veg.jpg' %}" alt="Banner 1">
             </a>
             <a href="#" class="banner" style="display: none;">
@@ -48,11 +61,57 @@
    {% if user.is_superuser %}
        <form id="controls">
   <label for="interval">Интервал (в секундах):</label>
-  <input type="number" id="interval" value="5">
+  <input type="number" id="imageSpeed" value="5">
 </form>
 {% endif %}
 
+    <div class="for-title">
+        <h1>Products</h1>
+    </div>
+    <div class="grid-container col-3">
+            <div class="card-product">
+        <a href="{{ product.id }}">
+        <div class="card-img">
+            <img src="{{ product.image.url }}"  class="img-products-all" alt="...">
+        </div>
+                <hr>
+                <h3 class="card-title">{{ product.name }}</h3>
+                <p class="card-text" id="kostyl">{{ product_price }}</p>
+            <p id="result"></p>
+            </a>
+        </div>
+    <form>
+        <input type="number" min="0" max="100" step="1"
+               title="Enter the discount."
+               id="discountInput" value="0"><br>
+        <button id="enterButton">Enter</button>
+      </form>
+    </div>
+{#    <div class="grid-container col-3">#}
+{#        {% for el in products %}#}
+{#            <div class="card-product">#}
+{#        <a href="{{ el.id }}">#}
+{#        <div class="card-img">#}
+{#            <img src="{{ el.image.url }}"  class="img-products-all" alt="...">#}
+{#        </div>#}
+{#                <hr>#}
+{#                <h3 class="card-title">{{ el.name }}</h3>#}
+{#                <p class="card-text">{{ el.price }}</p>#}
+{#            <span class="new-price"></span>#}
+{#            </a>#}
+{#        </div>#}
+{#        {% endfor %}#}
+{#    </div>#}
+
 {#    </section>#}
+{#    <script>#}
+{#    // Передача информации о купоне в переменную JavaScript#}
+{#    var couponInfo = {#}
+{#      id: {{ coupon. }},#}
+{#      discount: {{ coupon. }},#}
+{#      // Другие необходимые данные о купоне#}
+{#    };#}
+{#  </script>#}
     <script src="{% static 'js/our_products.js' %}"></script>
     <script src="{% static 'js/carousel.js' %}"></script>
 {% endblock %}

@@ -1,110 +1,200 @@
-.form-change {
-      font-size: 16px;
-      color: #000;
-      background-color: #fff;
-      transition: all 0.3s ease;
-    }
-
-
-.specific {
-  list-style-type: none;
+table.js{
+    border-collapse: collapse;
 }
 
-.specific li:before {
-  content: "\2716";
+table.js, th.js, td.js {
+    border:1px solid black;
 }
 
-tr:first-child, li:first-child {
-     background: linear-gradient(196.82deg,rebeccapurple,yellow);
+th.js, td.js {
+    padding: 10px;
+    text-align: center;
 }
 
-td:last-child, li:last-child {
-    background: aqua;
+.selected-even {
+    background-color: lightpink;
 }
 
-tr:last-child:nth-child(even), li:nth-child(2) {
-    background: cadetblue;
-}
-
-q:lang(fr), q:lang(ru) {
-    quotes: "\00AB" "\00BB";
-}
-
-q:lang(de) {
-    quotes: "\201E" "\201C";
-}
-
-q:lang(en) {
-    quotes: "\201C" "\201D";
-}
-
-.text::before {
-    content: "Context before: "; /* Добавление контекста перед текстом */
-    color: #808080; /* Измените цвет контекста перед текстом по вашему усмотрению */
-}
-
-.text::after {
-    content: ":Context after. "; /* Добавление контекста перед текстом */
-    color: #808080; /* Измените цвет контекста перед текстом по вашему усмотрению */
-}
-
-.text::selection {
-    background: #a49004;
-}
-
-h1 {
-    font-variant: small-caps;
-}
-
-input[type="checkbox"]:checked + label {
+.selected-odd {
     background-color: lightblue;
 }
 
 
-input[type="radio"]:checked + label {
-    background-color: lightgreen;
-}
 
-.company {
-    font-family: "Times New Roman";
-    font-kerning: normal;
-    text-shadow: 1px 1px 2px black,
-							0 0 1em yellow;
-
-}
-input {
-    cursor: se-resize;
-}
-
-.table-trash {
-    border-collapse: collapse;
-    empty-cells: show;
-    position: static;
-}
-
-td:empty {
-    background-color: #c58c77;
-}
-
-td {
-    text-align: start;
-    vertical-align: middle;
-}
-
-.td-num {
-    text-align: center;
-}
-td, th {
-    border: 1px solid grey;
-}
-
-
-tr:hover {
-    background-color: khaki;
-}
-
-
-caption {
+table.car-stat{
+    margin: 10px;
     caption-side: top;
+    text-align: center;
+    vertical-align: middle;
+    border-collapse: collapse;
+    table-layout: auto;
 }
+
+table.car-stat tr{
+    background-color: blanchedalmond;
+    height: 50px;
+}
+
+table.car-stat td {
+    color: darkslategrey;
+    border: 2px solid gold;
+    min-width: 100px;
+    height: 50px;
+}
+
+/*table.car-stat td:empty {*/
+/*    background-image: url(../Images/empty_cell.png);*/
+/*    background-size: cover;*/
+/*}*/
+
+table.car-stat th {
+    color: azure;
+    background-color: dimgrey;
+    border: 3px solid black;
+}
+
+button {
+      width: 100%;
+      background-color: #555555;
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 5px 10px;
+      margin: 5px 0;
+      box-sizing: border-box;
+    }
+    #tableContainer {
+      margin-top: 20px;
+      border-collapse: collapse;
+      border: 1px solid black;
+    }
+    #tableContainer td {
+      border: 1px solid black;
+      text-align: center;
+      vertical-align: middle;
+      padding: 10px;
+    }
+    .selected:nth-child(even) {
+      background-color: lightpink;
+    }
+    .selected:nth-child(odd) {
+      background-color: lightblue;
+    }
+
+/*.form-change {*/
+/*      font-size: 16px;*/
+/*      color: #000;*/
+/*      background-color: #fff;*/
+/*      transition: all 0.3s ease;*/
+/*    }*/
+
+
+/*.specific {*/
+/*  list-style-type: none;*/
+/*}*/
+
+/*.specific li:before {*/
+/*  content: "\2716";*/
+/*}*/
+
+/*tr:first-child, li:first-child {*/
+/*     background: linear-gradient(196.82deg,rebeccapurple,yellow);*/
+/*}*/
+
+/*td:last-child, li:last-child {*/
+/*    background: aqua;*/
+/*}*/
+
+/*tr:last-child:nth-child(even), li:nth-child(2) {*/
+/*    background: cadetblue;*/
+/*}*/
+
+/*q:lang(fr), q:lang(ru) {*/
+/*    quotes: "\00AB" "\00BB";*/
+/*}*/
+
+/*q:lang(de) {*/
+/*    quotes: "\201E" "\201C";*/
+/*}*/
+
+/*q:lang(en) {*/
+/*    quotes: "\201C" "\201D";*/
+/*}*/
+
+/*.text::before {*/
+/*    content: "Context before: "; !* Добавление контекста перед текстом *!*/
+/*    color: #808080; !* Измените цвет контекста перед текстом по вашему усмотрению *!*/
+/*}*/
+
+/*.text::after {*/
+/*    content: ":Context after. "; !* Добавление контекста перед текстом *!*/
+/*    color: #808080; !* Измените цвет контекста перед текстом по вашему усмотрению *!*/
+/*}*/
+
+/*.text::selection {*/
+/*    background: #a49004;*/
+/*}*/
+
+/*h1 {*/
+/*    font-variant: small-caps;*/
+/*}*/
+
+/*input[type="checkbox"]:checked + label {*/
+/*    background-color: lightblue;*/
+/*}*/
+
+
+/*input[type="radio"]:checked + label {*/
+/*    background-color: lightgreen;*/
+/*}*/
+
+/*.company {*/
+/*    font-family: "Times New Roman";*/
+/*    font-kerning: normal;*/
+/*    text-shadow: 1px 1px 2px black,*/
+/*							0 0 1em yellow;*/
+
+/*}*/
+/*input {*/
+/*    cursor: se-resize;*/
+/*}*/
+
+/*.table-trash {*/
+/*    border-collapse: collapse;*/
+/*    empty-cells: show;*/
+/*    position: static;*/
+/*}*/
+
+/*td:empty {*/
+/*    background-color: #c58c77;*/
+/*}*/
+
+/*td {*/
+/*    text-align: start;*/
+/*    vertical-align: middle;*/
+/*}*/
+
+/*.td-num {*/
+/*    text-align: center;*/
+/*}*/
+/*td, th {*/
+/*    border: 1px solid grey;*/
+/*}*/
+
+
+/*tr:hover {*/
+/*    background-color: khaki;*/
+/*}*/
+
+
+/*caption {*/
+/*    caption-side: top;*/
+/*}*/
 

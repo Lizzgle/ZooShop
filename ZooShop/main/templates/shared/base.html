@@ -62,15 +62,25 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'static_info' %}">Static Info</a>
             </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{{ user.profile.icon.url }}" height="23px"/>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'profile' id=user.id %}">Profile</a></li>
-                <li><a class="dropdown-item" href="{% url 'sales' %}">Sales</a></li>
-                <li><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></li>
-            </ul>
+            <div class="dropdown">
+    <select onchange="location = this.value;">
+        <option value="" selected disabled hidden>
+            <img src="{{ user.profile.icon.url }}" height="23px" alt="User icon"/>
+        </option>
+        <option value="{% url 'profile' id=user.id %}">Profile</option>
+        <option value="{% url 'sales' %}">Sales</option>
+        <option value="{% url 'logout' %}">Log out</option>
+    </select>
+</div>
+{#            <li class="nav-item dropdown">#}
+{#            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">#}
+{#                <img src="{{ user.profile.icon.url }}" height="23px"/>#}
+{#            </a>#}
+{#            <ul class="dropdown-menu">#}
+{#                <li><a class="dropdown-item" href="{% url 'profile' id=user.id %}">Profile</a></li>#}
+{#                <li><a class="dropdown-item" href="{% url 'sales' %}">Sales</a></li>#}
+{#                <li><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></li>#}
+{#            </ul>#}
         {% else %}
             <div>
                 <a class="btn gren" href="{% url 'login' %}" role="button">Sign in</a>

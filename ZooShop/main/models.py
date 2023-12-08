@@ -30,6 +30,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class Company(models.Model):
+    name = models.CharField(max_length=65, unique=True)
+
+
 class Product(models.Model):
     name = models.CharField(max_length=65, unique=True)
     article = models.IntegerField()
@@ -37,6 +41,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='product_images/')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     # quantity = models.PositiveIntegerField(null=True, default=0)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name = "Product"
@@ -197,6 +202,7 @@ class Sales(models.Model):
     discription = models.TextField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     to_date = models.DateField()
+    persent = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(99)], null=True)
 
 class Feedback(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)

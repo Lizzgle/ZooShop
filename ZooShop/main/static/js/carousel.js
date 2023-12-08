@@ -29,7 +29,7 @@ function stopRotation() {
 }
 
 function handleVisibilityChange() {
-  if (document.visibilityState === 'hidden') {
+  if (!document.hasFocus()) {
     stopRotation();
   } else {
     startRotation(5 * 1000);
